@@ -1,0 +1,10 @@
+" To use this file move it into your home directory and
+" change the name to .vimrc
+" This changes so when you hit tab it inserts 4 spaces instead
+"
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" This turns on line numbers by default
+set number
+
