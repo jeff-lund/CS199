@@ -21,4 +21,4 @@ frank.setpos(-50, 50)
 frank.setpos(50, 50)
 
 # Will keep window open until you click on it, not needed on repl
-turtle.exitonclick()
+window.exitonclick()
