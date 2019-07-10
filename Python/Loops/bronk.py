@@ -1,3 +1,5 @@
+# Using Lord Brounkers continued fraction to estimate pi
+
 n = int(input("Enter a positive, odd number: "))
 if n % 2 == 0:
     print("Nope")
