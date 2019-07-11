@@ -1,6 +1,5 @@
 from pig_latin import is_vowel
 msg = input("enter a phrase: ")
-msg = list(msg)
 l = len(msg)
 msg2 = []
 c = 0
