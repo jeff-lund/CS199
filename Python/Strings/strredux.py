@@ -11,7 +11,8 @@ while changed:
     copy = []
     i = 0
     l = len(initial) - 1
-    while i < l:
+'''
+while i < l:
         if skip:
             last = True
             skip = False
@@ -51,5 +52,5 @@ while changed:
                 copy.append(a)
                 idx += 1
     initial = copy
-'''
+
 print("Reduced string: ", ''.join(initial))
