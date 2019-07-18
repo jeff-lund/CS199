@@ -2,6 +2,7 @@ from pig_latin import *
 
 def translate(word):
     ret = []
+    cap = word[0].isupper()
     # word starts with a vowel
     if is_vowel(word[0]):
             ret = word + ['y', 'a', 'y']
@@ -17,6 +18,9 @@ def translate(word):
             end.append(word[i])
             i += 1
         ret = end + cons + ['a', 'y']
+    ret = [letter.lower() for letter in ret]
+    if cap:
+        ret[0] = ret[0].upper()
     return ret
 
 phrase = input()
