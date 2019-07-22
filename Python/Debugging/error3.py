@@ -1,4 +1,5 @@
-msg = "Enter a number (-1 to terminate): "
+def even_odds():
+    msg = "Enter a number (-1 to terminate): "
 n = int(input(msg))
 evens = []
 elength = 0
