@@ -2,19 +2,20 @@
 # ouput: 1*1 - 2*2 + 3*3 - 4*4 + 5*5 - 6*6 + 7*7 - .... +- n*n
 
 import math
-n = float(input("Please type in an integer >= 1: "))
-
-
-# Solution 1
-s = 0
-k = 1
-while(k <= n) :
-    if(k % 2 == 0) : # checks if k is even
-        s = s - k * k
-    if(k % 2 == 1) : # checks if k is odd
-        s = s + k * k
-    k = k + 1
-print("sum =" , s)
+#n = float(input("Please type in an integer >= 1: "))
+nums = [x for x in range(20)]
+for n in nums:
+    print(n, end = ' ')
+    # Solution 1
+    s = 0
+    k = 1
+    while(k <= n) :
+        if(k % 2 == 0) : # checks if k is even
+            s = s - k 
+        if(k % 2 == 1) : # checks if k is odd
+            s = s + k 
+        k = k + 1
+    print("sum =" , s)
 
 
 '''
