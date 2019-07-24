@@ -8,7 +8,7 @@ def multiplier(*args):
     >>> multiplier(3, 3, 3)
     27
     '''
-    product = 0
+    product = 1
     for n in args:
         product *= n
     return product
