@@ -4,11 +4,16 @@
 * basic hello world program       *
 ******************************** */
 
-#include <iostream>
-using namespace std;
+#include <iostream> 
 
-int main(void)
+void foo()
 {
-    cout << "Hello, World!" << endl;
+    std::cout << "Hello" << std::endl;
+}
+int main(void) 
+{ 
+    using namespace std;
+    foo();
+    cout << "Hello, World!" << endl; 
     return 0;
 }
