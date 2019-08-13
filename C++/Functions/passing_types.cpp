@@ -13,7 +13,11 @@ int bar(int x)
     return x;
 }
 
-
+void spam(int &a, int &b)
+{
+    a += 5;
+    b -= 5;
+}
 int main(void)
 {
     int x = 10;
@@ -29,6 +33,10 @@ int main(void)
     cout << "original value of x = " << x << endl;
     foo(x);
     cout << "New value of x = ";
-    cout << x << endl;
+    cout << x << endl << endl;
+    cout << "Original values: " << x << " " << y << endl; 
+    spam(x, y);
+    cout << "new values: " << x << " " << y << endl;
+
     return 0;
 }
