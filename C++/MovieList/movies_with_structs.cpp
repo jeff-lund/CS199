@@ -1,3 +1,9 @@
+/*************************************
+* Jeff Lund
+* CS199
+* Movie Manager w/struct
+*************************************/
+
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -5,6 +11,7 @@ using namespace std;
 const int SMSIZE = 20;
 const int SIZE = 100;
 const int LGSIZE = 500;
+const int STARS = 20;
 
 struct movie
 {
@@ -14,22 +21,35 @@ struct movie
     char genre[SIZE];
 };
 
-void read_all(movie&);
-void display_all(movie&);
+void read_movie(movie&);
+void display_movie(movie&);
+void display_all(movie*, int);
 int correct(void);
+void starprint(int);
 
 int main(void)
 {
-    int n_movies = 0;
+    int nmovies = 0;
     movie my_movies[SIZE];
-    do
+    char loop = 'y';
+    while(loop == 'y')
     {
-        read_all(my_movies[n_movies]);
-        display_all(my_movies[n_movies]);
-    } while(!correct());
+      do
+      {
+          read_movie(my_movies[nmovies]);
+          display_movie(my_movies[nmovies]);
+      } while(!correct());
+      ++nmovies;
+      cout << "Add another movies (y/n)? ";
+      cin >> loop;
+      cin.ignore(100, '\n');
+    }
+    cout << "Your current movies" << endl;
+    starprint(STARS);
+    display_all(my_movies, nmovies);
 }
 
-void read_all(movie & m)
+void read_movie(movie & m)
 {
     // prompt the user and read in data for each of the parameters
     cout << "What is the title of the movie: ";
@@ -49,7 +69,7 @@ void read_all(movie & m)
     cin.ignore();
 }
 
-void display_all(movie & m)
+void display_movie(movie & m)
 {
     // pretty print all of the params
     cout << "Title: " << m.title << endl;
@@ -66,4 +86,20 @@ int correct(void)
     cin.ignore(100, '\n');
 
     return c == 'y';
+}
+
+void display_all(movie movies[], int n)
+{
+  for(int i = 0; i < n; ++i)
+  {
+    display_movie(movies[i]);
+    starprint(STARS);
+  }
+}
+
+void starprint(int n)
+{
+  for(int i = 0; i < n; ++i)
+    cout << '*';
+  cout << endl;
 }
