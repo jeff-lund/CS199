@@ -1,0 +1,24 @@
+Robin
+1
+0	95	100
+Jeff
+2
+0	98	100
+Andy
+3
+0	93	100
+Travis
+4
+0	97	100
+Michael
+5
+0	99	100
+Austen
+6
+0	100	100
+John
+7
+0	96	100
+Aaron
+8
+0	92	100

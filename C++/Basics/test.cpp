@@ -1,21 +1,16 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
+const int BLUE = 0;
+const int GREEN = 1;
+    
 int main(void)
 {
-    /*int num[] = {1, 2, 3, 4, 5};
-    char let[] = {'a', 'b', 'c', 'd', 'e', 'f'};
-    char word[] = "battleaxe";
-    cout << num << endl;
-    cout << let << endl;
-    cout << word << endl;
-    */
-    char str1[] = "pear";
-    char str2[] = "pear";
-    if(str1 == str2)
-        cout << "Yup" << endl;
-    else
-        cout << "Nope" << endl;
+    char name[] = "Gilgamesh";
+    char n2[100];
+    cin.get(n2, 100, 'a');
+    cout << n2 << endl;
     return 0;
 }
 
