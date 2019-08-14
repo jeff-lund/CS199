@@ -4,6 +4,21 @@ using namespace std;
 
 const int SIZE = 50;
 
+void Cin(int &n, const char msg[], const char err[])
+{
+    cout << msg;
+    cin >> n;
+    while(cin.fail())
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << err << endl;
+        cout << msg;
+        cin >> n;
+    }
+    cin.ignore(100, '\n');
+}
+
 int main(void)
 {
     char name[SIZE];
@@ -26,11 +41,21 @@ int main(void)
         cout << "Enter the powers of " << superhero_name << ": ";
         cin.get(power, SIZE, '\n');
         cin.ignore();
-        
+        /*
         cout << "Enter the power level of " << superhero_name << ": ";
         cin >> ranking;
+        while(cin.fail())
+        {
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "Please enter a numeric power level (1-10)" << endl;
+            cout << "Enter the power level of " << superhero_name << ": ";
+            cin >> ranking;
+
+        }
         cin.ignore(100, '\n');
-        
+        */
+        Cin(ranking, "Enter the power level of the hero: ", "Please enter a numeric power level (1-10)");
         cout << "What team is " << superhero_name << " on: ";
         cin.get(team, SIZE, '\n');
         cin.ignore();
