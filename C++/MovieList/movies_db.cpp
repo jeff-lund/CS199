@@ -1,7 +1,8 @@
 /*************************************
 * Jeff Lund
 * CS199
-* Movie Manager w/struct
+* Movie Manager w/strucut and file 
+* persistance
 *************************************/
 
 #include <iostream>

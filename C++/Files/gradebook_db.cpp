@@ -392,6 +392,7 @@ void grade(student students[], int length)
     {
       if(students[i].final_grade == 0)
         grade_final(students[i]);
+
     }
   }
   else
