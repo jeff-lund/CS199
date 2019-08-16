@@ -10,4 +10,4 @@ void enque(Queue&, int val);
 int deque(Queue&);
 bool isDeqEmpty(Queue&);
 bool isEnqEmpty(Queue&);
-int peek(Queue&);
+int qpeek(Queue&);
