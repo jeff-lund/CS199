@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <fstream>
 using namespace std;
 
 const int SMSIZE = 20;
@@ -27,12 +28,15 @@ void display_movie(movie&);
 void display_all(movie*, int);
 int correct(void);
 void starprint(int);
+int load_collection(movie*);
+void store_collection(movie*, int);
 
 int main(void)
 {
-    int nmovies = 0;
     movie my_movies[SIZE];
+    int nmovies = load_collection(my_movies);
     char loop = 'y';
+    
     while(loop == 'y')
     {
       do
@@ -104,3 +108,37 @@ void starprint(int n)
     cout << '*';
   cout << endl;
 }
+
+int load_collection(movie movies[])
+{
+    int i = 0;
+    char filename[100];
+    ifstream loader;
+    cout << "enter the file name: ";
+    cin >> filename;
+    cin.ignore(100, '\n');    
+    loader.get(movies[i].title, SIZE, '\t');
+    loader.ignore(100, '\t');
+    while(!loader.eof())
+    {
+        loader.get(movies[i].description, LGSIZE, '\t');
+        loader.ignore(100, '\t');
+
+        loader.get(movies[i].rating, SMSIZE, '\t');
+        loader.ignore(100, '\t');
+
+        loader.get(movies[i].genre, SIZE, '\n');
+        loader.ignore(100, '\n');
+        ++i;
+        // prime the pump
+        loader.get(movies[i].title, SIZE, '\t');
+        loader.ignore(100, '\t');
+    }
+    loader.close();
+    return i;
+}
+
+void store_collection(movie movies[], int nmovies)
+{
+    return;
+} 
