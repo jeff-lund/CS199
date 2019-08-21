@@ -3,6 +3,7 @@
 #include <cctype>
 using namespace std;
 
+char array_shift(char, int);
 char shiftp(char, int);
 char shiftn(char, int);
 void cipher(char*, char*, int);
@@ -66,7 +67,8 @@ void cipher(char original[], char ciphered[], int shift)
             upper = isupper(ciphered[i]);
             
             if(shift > 0)
-                c = shiftp(c, shift);
+                //c = shiftp(c, shift);
+                c = array_shift(c, shift);
             else
                 c = shiftn(c, shift);
             
@@ -89,4 +91,14 @@ int get_shift(void)
     } while(n == 0 || n > 25 || n < -25);
     
     return n;
+}
+
+char array_shift(char c, int n)
+{
+    const char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+    int index;
+    index = c - 'a';
+    index = (index + n) % 26;
+
+    return alphabet[index];
 }
