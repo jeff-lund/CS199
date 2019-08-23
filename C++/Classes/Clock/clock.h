@@ -1,7 +1,7 @@
 class Clock
 {
 	public:
-		Clock();
+        Clock();
 		void setTime(int, int, int);
 		void getTime(int&, int&, int&);
 		void printTime();

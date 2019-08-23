@@ -15,7 +15,7 @@ void Clock::setTime(int hr, int min, int sec)
         hour = hr;
     else
 	    hour = 0;
-
+    
     if(min >= 0 && min < 60)
         minute = min;
     else
