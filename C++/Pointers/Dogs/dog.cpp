@@ -22,6 +22,16 @@ dog::dog(const char *n, const char *b, const char *t)
     best_friend = NULL;
 }
 
+dog::~dog()
+{
+    if(name)
+        delete [] name;
+    if(breed)
+        delete [] breed;
+    if(trick)
+        delete [] trick;
+}
+
 void dog::display()
 {
     cout << name << " is a " << breed << " who can perform " << trick << "." << endl;

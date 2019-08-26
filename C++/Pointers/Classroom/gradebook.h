@@ -10,6 +10,7 @@ class Classroom
 {
   public:
     Classroom();
+    ~Classroom();
     void add_student(void);
     void display_all(void);
     void grade_student(const char*);

@@ -12,9 +12,10 @@ int main(void)
          << endl; 
 
     int var = 22;
-    int *p = &var;
+    int *p;
+    p = &var;
     cout << *p << endl;
-    *p = 40;
+    *p = 40; 
     cout << var << endl;
 
     delete pointer; // make sure to deallocate your pointers

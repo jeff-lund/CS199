@@ -9,6 +9,12 @@ Classroom::Classroom()
   n_students = 0;
 }
 
+
+Classroom::~Classroom()
+{
+    for(int i = 0; i < n_students; ++i)
+        delete [] students[i].name;
+}
 void Classroom::add_student(void)
 {
     char buffer[500];

@@ -2,6 +2,7 @@ class dog
 {
     public:
         dog();
+        ~dog();
         dog(const char*, const char*, const char*);
         void display(void);
         void read(void);
