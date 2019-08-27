@@ -4,12 +4,15 @@
 #include "movies.h"
 using namespace std;
 
-void read_movie(movie & m)
+void read_movie(movie * m)
 {
+    char buffer[SIZE];
     // prompt the user and read in data for each of the parameters
     cout << "What is the title of the movie: ";
-    cin.get(m.title, SIZE, '\n');
-    cin.ignore();
+    cin.get(buffer, SIZE, '\n');
+    cin.ignore(100, '\n');
+    m->title = new char[strlen(buffer) + 1];
+    strcpy(m->title, buffer);
 
     cout << "Enter a description of the movie: ";
     cin.get(m.description, LGSIZE, '\n');

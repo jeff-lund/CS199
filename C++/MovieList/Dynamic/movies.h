@@ -3,7 +3,7 @@
 #define RED "\x1B[31m"
 
 const int STARS = 20;
-
+const int SIZE = 100;
 struct movie
 {
     char title;
