@@ -2,7 +2,7 @@
 #include "dog.h"
 using namespace std;
 
-int main(void)
+int foo(void)
 {
     dog pebbles("Pebbles", "Black Lab", "fetch");
     dog moose("Moose", "Bernese Mountain Dog", "roll over");
@@ -13,7 +13,7 @@ int main(void)
     pebbles.display();
     moose.display();
 
-    frank.read();
+    frank->read();
     frank->set_friend(&pebbles);
     moose.set_friend(frank);
 
@@ -23,4 +23,9 @@ int main(void)
 
     //delete frank;
     return 0;
+}
+
+int main(void)
+{
+    foo();
 }
