@@ -1,23 +1,21 @@
 #define RESET "\x1B[0m"
 #define GREEN "\x1B[32m"
 #define RED "\x1B[31m"
-const int SMSIZE = 20;
-const int SIZE = 100;
-const int LGSIZE = 500;
+
 const int STARS = 20;
 
 struct movie
 {
-    char title[SIZE];
-    char description[LGSIZE];
-    char rating[SMSIZE];
-    char genre[SIZE];
+    char title;
+    char description;
+    char rating;
+    char genre;
 };
 
 class movie_list
 {
   public:
-    movie_list();
+    movie_list(int);
     ~movie_list();
     void add();
     void remove_title(const char*);
@@ -25,8 +23,9 @@ class movie_list
     void load_collection();
     void store_collection();
   private:
-    movie my_movies[100];
+    movie * my_movies;
     int num_movies;
+    int max_size;
 };
 
 void read_movie(movie&);
