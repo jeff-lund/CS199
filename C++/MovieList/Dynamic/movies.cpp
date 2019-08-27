@@ -54,13 +54,14 @@ void movie_list::load_collection()
 {
     char filename[100];
     ifstream loader;
+    int starting_movies = num_movies;
     cout << "enter the file name: ";
     cin >> filename;
     cin.ignore(100, '\n');
     loader.open(filename);
     if(!loader)
     {
-      cout << "Failed to open file" << endl;
+      cout << RED << "Failed to open file" << RESET << endl;
       return;
     }
     loader.get(my_movies[num_movies].title, SIZE, '\t');
@@ -81,6 +82,9 @@ void movie_list::load_collection()
         loader.ignore(100, '\t');
     }
     loader.close();
+    starting_movies = num_movies - starting_movies;
+    cout << GREEN <<  "Loaded in " << starting_movies
+         << " movies to your movie collection." << RESET << endl;
 }
 
 void movie_list::store_collection()

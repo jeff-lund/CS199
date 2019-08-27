@@ -15,8 +15,8 @@ int main(void)
   {
     cout << "1. Load an existing collection" << endl;
     cout << "2. Add a movie to your collection" << endl;
-    cout << "3. Remove a movie from you collection" << endl;
-    cout << "4. Display you collection" << endl;
+    cout << "3. Remove a movie from your collection" << endl;
+    cout << "4. Display your collection" << endl;
     cout << "5. Save and quit" << endl;
     cout << "Make a selection: ";
     cin >> option;

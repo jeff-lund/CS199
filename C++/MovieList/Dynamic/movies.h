@@ -1,3 +1,6 @@
+#define RESET "\x1B[0m"
+#define GREEN "\x1B[32m"
+#define RED "\x1B[31m"
 const int SMSIZE = 20;
 const int SIZE = 100;
 const int LGSIZE = 500;
