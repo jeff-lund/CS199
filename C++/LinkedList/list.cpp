@@ -4,18 +4,48 @@ using namespace std;
 
 linked_list::linked_list()
 {
-    node *current, *temp;
-    head = new node;
-    head->value = 1;
-    current = head;
-    temp = new node;
-    temp->value = 2;
-    current->next = temp;
-    current = temp;
-    temp = new node;
-    temp->value = 3;
-    temp->next = NULL;
-    current->next = temp;
+    head = NULL;
+}
+
+void linked_list::add_front(int n)
+{
+    node * temp;
+    if(!head)
+    {
+        head = new node;
+        head->value = n;
+        head->next = NULL;
+    }
+    else
+    {
+        temp = new node;
+        temp->value = n;
+        temp->next = head;
+        head = temp;
+    }
+}
+
+void linked_list::add_back(int n)
+{
+    node *temp, *current;
+    if(!head)
+    {
+        head = new node;
+        head->value = n;
+        head->next = NULL;
+    }
+    else
+    {
+        temp = new node;
+        temp->value = n;
+        temp->next = NULL;
+        current = head;
+        while(current)
+        {
+            current = current->next;
+        }
+        current->next = temp;
+    }
 }
 
 void linked_list::display()
@@ -29,4 +59,3 @@ void linked_list::display()
     }
     cout << endl;
 }
-
