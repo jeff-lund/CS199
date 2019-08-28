@@ -1,4 +1,6 @@
+#include <iostream>
 #include "list.h"
+using namespace std;
 
 int main(void)
 {
@@ -6,9 +8,11 @@ int main(void)
     for(int i = 10; i < 100; i += 10)
     {
         //l.add_front(i);
-        l.add_back(i);
+        l.insert_behind_tail(i);
         l.display();
     }
-
+    l.display_last();
+    cout << "Alternating sequence: ";
+    l.display_alternating();
     return 0;
 }
