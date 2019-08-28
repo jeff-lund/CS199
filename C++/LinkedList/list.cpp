@@ -38,13 +38,13 @@ void linked_list::add_back(int n)
     {
         temp = new node;
         temp->value = n;
-        temp->next = NULL;
         current = head;
-        while(current)
+        while(current->next != NULL)
         {
             current = current->next;
         }
         current->next = temp;
+        temp->next = NULL;
     }
 }
 
