@@ -22,13 +22,9 @@ list::~list()
   while(head != NULL)
   {
     temp = head->next;
-    //delete [] head->a_dog.name;
-    //delete [] head->a_dog.breed;
-    //delete [] head->a_dog.trick;
     delete head;
     head = temp;
   }
-
   return;
 }
 

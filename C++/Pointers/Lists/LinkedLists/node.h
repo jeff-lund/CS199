@@ -7,6 +7,7 @@ class list
 {
     public:
         list();
+        ~list();
         void add_b(int);
         void add_e(int);
         void add_sort(int);

@@ -8,6 +8,7 @@ int main(void)
     for(int i = 10; i < 100; i += 10)
     {
         //l.add_front(i);
+        //l.insert_second(i);
         l.insert_behind_tail(i);
         l.display();
     }

@@ -7,6 +7,17 @@ list::list()
   head = NULL;
   return;
 }
+
+list::~list()
+{
+    node * temp = head;
+    while(temp)
+    {
+        head = head->next;
+        delete temp;
+        temp = head;
+    }
+}
 void list::display_all(void)
 {
   node *current = head;
