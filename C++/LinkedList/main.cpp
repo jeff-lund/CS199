@@ -3,12 +3,12 @@
 int main(void)
 {
     linked_list l;
-    l.add_back(10);
-    l.display();
-    l.add_back(20);
-    l.display();
-    l.add_back(30);
-    l.display();
+    for(int i = 10; i < 100; i += 10)
+    {
+        //l.add_front(i);
+        l.add_back(i);
+        l.display();
+    }
 
     return 0;
 }
