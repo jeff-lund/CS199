@@ -7,6 +7,17 @@ linked_list::linked_list()
     head = NULL;
 }
 
+linked_list::~linked_list()
+{
+    node *temp;
+    while(head)
+    {
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
 void linked_list::add_front(int n)
 {
     node * temp;
@@ -64,14 +75,14 @@ void linked_list::display()
 void linked_list::display_last(void)
 {
     node * current;
-
+    
     // check for empty list
     if(!head)
     {
       cout << "List is empty, no nodes to display" << endl;
       return;
     }
-
+    
     current = head;
     // Traverse to the last node in the list
     while(current->next != NULL)
@@ -86,7 +97,7 @@ void linked_list::display_alternating(void)
 {
   node * current;
   bool print = true;
-
+  
   // check for empty list
   if(!head)
   {
@@ -159,8 +170,8 @@ void linked_list::insert_behind_tail(int n)
     // behind -> temp -> current
     else
     {
-      current = head;
-      behind = current;
+      behind = head;
+      current = head->next;
       while(current->next)
       {
         behind = current;
@@ -171,4 +182,65 @@ void linked_list::insert_behind_tail(int n)
       temp->next = current;
     }
   }
+}
+
+void linked_list::add_sorted(int n)
+{
+    node * temp, * current;
+    if(!head)
+    {
+        head = new node;
+        head->value = n;
+        head->next = NULL;
+    }
+    else if(head->value > n)
+    {
+        add_front(n);
+    }
+    else
+    {
+        temp = new node;
+        temp->value = n;
+        current = head;
+        while(current->next && current->next->value < n)
+        {
+            current = current->next;
+        }
+        temp->next = current->next;
+        current->next = temp;
+    }
+}
+
+void linked_list::remove(int n)
+{
+    node * temp, *current, *previous;
+
+    if(!head)
+    {
+        cout << "List is empty" << endl; 
+        return;
+    }
+    else if(head->value == n)
+    {
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
+    else
+    {
+        current = head->next;
+        previous = head;
+        while(current && current->value != n)
+        {
+            previous = current;
+            current = current->next;
+        } 
+        if(current)
+        {
+            previous->next = current->next;
+            delete current;
+        }
+        else
+            cout << "Value not found" << endl;
+    }
 }
