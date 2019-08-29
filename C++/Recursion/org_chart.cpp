@@ -12,6 +12,7 @@ void new_employee(const char*, employee&);
 void set_report(employee*, const char*, const char*);
 void print(employee*, int);
 void setup_company(employee*);
+void cleanup(employee&);
 
 void print(employee * e, int tabcount)
 {
@@ -33,12 +34,25 @@ int main(void)
   setup_company(boringCo);
   print(&boringCo[0], 0);
 
+  cleanup(boringCo[0]);
+
   return 0;
+}
+
+// Recursive deallocation function
+void cleanup(employee &e)
+{
+  for(int i = 0; i < 4; ++i)
+  {
+    if(e.reports[i])
+      cleanup(*(e.reports[i]));
+  }
+  delete [] e.name;
 }
 
 // Setup functions
 
-void setup_company(employee * boringCo)
+void setup_company(employee *boringCo)
 {
     const char *emps[20] = {"Buck", "Sue", "Jim", "Sara", "Fred", "Tom", "Bob",
                    "Mary", "Adam", "Billy", "Todd", "Mark", "Sandy",
