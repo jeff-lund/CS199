@@ -29,7 +29,7 @@ void linked_list::add_front(int n)
     }
     else
     {
-        temp = new node;
+        //temp = new node;
         temp->value = n;
         temp->next = head;
         head = temp;

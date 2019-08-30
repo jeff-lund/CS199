@@ -10,7 +10,7 @@ void digits(long n)
         return;
     }
     // What happens if we use the print here instead of below
-    // cout << n % 10 << " ";
+    //cout << n % 10 << " ";
     digits(n / 10);
     cout << n % 10 << " ";
 }
