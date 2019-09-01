@@ -1,4 +1,4 @@
-all: digits fib org strange sum
+all: digits fib org strange sum palindrome adder rstrlen
 
 digits: digits.cpp
 	g++ -ansi -Wall -o digits digits.cpp
@@ -15,6 +15,15 @@ strange: strange.cpp
 sum: sum.cpp
 	g++ -ansi -Wall -o sum sum.cpp
 
+palindrome: palindrome.cpp
+	g++ -ansi -Wall -o palindrome palindrome.cpp
+
+adder: adder.cpp
+	g++ -ansi -Wall -o adder adder.cpp
+
+rstrlen: r_strlen.cpp
+	g++ -ansi -Wall -o rstrlen r_strlen.cpp
+
 clean:
-	rm -f digits fib org strange sum a.out
+	rm -f digits fib org strange sum rstrlen adder palindrome a.out
 
