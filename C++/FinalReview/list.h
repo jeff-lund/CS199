@@ -21,7 +21,15 @@ class linked_list
         void add_sorted(int);
         void remove(int);
         void remove_rec(int);
-        void remove_r(node **head, int n);
+        void remove_r(node **, int);
+        // Final problems
+        int count(void);
+        void insert_middle(int);
+        void remove_three(void);
+        void insert_eo(int);
+        void reverse();
     private:
         node * head;
+        void insert_even(int);
+        void insert_odd(int);
 };

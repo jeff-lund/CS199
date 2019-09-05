@@ -16,6 +16,7 @@ bool palindrome(char s[], int left, int right)
     // so make a recursive call moving the indicies in by 1
     else
         return palindrome(s, left + 1, right - 1);
+    // abcbda
 }
 
 // Helper function to make calling the function look nicer

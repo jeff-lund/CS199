@@ -1,3 +1,4 @@
+// queue
 struct node
 {
   char *word;

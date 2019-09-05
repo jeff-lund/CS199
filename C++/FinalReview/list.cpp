@@ -17,6 +17,169 @@ linked_list::~linked_list()
         delete temp;
     }
 }
+
+void linked_list::reverse(void)
+{
+    int length = count();
+    int val;
+    node *tail, *current;
+    current = head;
+    tail = current;
+    // set up tail pointer
+    while(current)
+    {
+        tail = current;
+        current = current->next;
+    }
+    for(int i = 0; i < length; ++i)
+    {
+        current = head;
+        head = head->next;
+        tail->next = current;
+        current->next = NULL;
+        tail = current;
+    }   
+}
+
+void linked_list::insert_eo(int n)
+{
+    if(n % 2 == 0)
+        insert_even(n);
+    else
+        insert_odd(n);
+}
+
+void linked_list::insert_even(int n)
+{
+    node *temp, *previous, *current;
+   
+    if(!head)
+    {
+        head = new node;
+        head->next = NULL;
+        head->value = n;
+    }
+    else if(head->value % 2 == 1)
+    {
+        // only odd numbers in list
+        temp = new node;
+        temp->next = head;
+        temp->value = n;
+        head = temp;
+    }
+    else
+    {
+        // traverse even list until we reach the end of the list
+        // or the beginning of the odd list
+        current = head->next;
+        previous = head;
+        while(current && current->value % 2 == 0)
+        {
+            previous = current;
+            current = current->next;
+        }
+        temp = new node;
+        temp->value = n;
+        temp->next = current;
+        previous->next = temp;
+    }
+}
+
+void linked_list::insert_odd(int n)
+{
+    add_back(n);
+}
+
+void linked_list::remove_three(void)
+{
+    node *current, *previous, *temp;
+    /*
+    if(!head)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+  
+    while(head && head->value % 3 == 0)
+    {
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
+    if(!head)
+        return;
+    current = head->next;
+    previous = head;
+    while(current)
+    {
+        if(current->value % 3 == 0)
+        {
+            temp = current;
+            previous->next = current->next;
+            current = current->next;
+            delete temp;
+        }
+        else
+        {
+            // node not divisible by three
+            previous = current;
+            current = current->next;
+        }
+    }
+    */
+    current = head;
+    while(current)
+    {
+        if(current->value % 3 == 0)
+        {
+            temp = current;
+            current = current->next;
+            remove(temp->value);
+        }
+        else
+            current = current->next;
+    }
+}
+
+int linked_list::count(void)
+{
+    node * current = head;
+    int n = 0;
+    while(current)
+    {
+        ++n;
+        current = current->next;
+    }
+
+    return n;
+}
+
+void linked_list::insert_middle(int n)
+{
+    node *current, *temp;
+    current = head;
+    int length;
+    if(!head)
+    {
+        head = new node;
+        head->value = n;
+        head->next = NULL;
+        return;
+    }
+    else
+    {
+        length = count();
+        length /= 2;
+        --length;
+        temp = new node;
+        temp->value = n;
+        for(int i = 0; i < length; ++i)
+            current = current->next;
+        temp->next = current->next;
+        current->next = temp;
+    }
+}   
+
 void linked_list::remove_rec(int n)
 {
     remove_r(&head, n);

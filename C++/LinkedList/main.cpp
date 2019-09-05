@@ -11,15 +11,16 @@ int main(void)
     for(int i = 0; i < 5; ++i)
     {
         //l.add_front(i);
-        //l.insert_second(i);
+        l.insert_second(i);
         //l.insert_behind_tail(i);
-        l.add_sorted(arr[i]);
+        //l.add_sorted(arr[i]);
         l.display();
     }
     l.display_last();
     cout << "Alternating sequence: ";
     l.display_alternating();
-    
+    for(int i = 0; i < 5; ++i)
+        l.remove_rec(i);    
     
     return 0;
 }
