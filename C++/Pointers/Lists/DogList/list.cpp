@@ -31,15 +31,18 @@ list::~list()
 void list::search_breed()
 {
     char buffer[500];
+    // create second list to store nodes in sorted order that match the breed
     list sorted;
-    node *current = head;
+    node *current;
 
     cout << "Enter the breed of dog to search for: ";
     cin.get(buffer, 500, '\n');
     cin.ignore(100, '\n');
-
+    // traverse original list looking for nodes that match
+    current = head;
     while(current)
     {
+        // if we find a match insert it into the secondary list
         if(strcmp(buffer, current->a_dog.breed) == 0)
         {
             sorted.insert_sorted(current);
@@ -52,20 +55,20 @@ void list::search_breed()
 node * list::copy(node* n)
 {
     node * temp;
-    dog *original, *copy;
+    dog *original, *copied;
 
     temp = new node;
     original = &(n->a_dog);
-    copy = &(temp->a_dog);
+    copied = &(temp->a_dog);
 
-    copy->name = new char[strlen(original->name) + 1];
-    strcpy(copy->name, original->name);
+    copied->name = new char[strlen(original->name) + 1];
+    strcpy(copied->name, original->name);
     
-    copy->breed = new char[strlen(original->breed) + 1];
-    strcpy(copy->breed, original->breed);
+    copied->breed = new char[strlen(original->breed) + 1];
+    strcpy(copied->breed, original->breed);
     
-    copy->trick = new char[strlen(original->trick) + 1];
-    strcpy(copy->trick, original->trick);
+    copied->trick = new char[strlen(original->trick) + 1];
+    strcpy(copied->trick, original->trick);
     temp->next = NULL;
 
     return temp;
@@ -74,11 +77,12 @@ node * list::copy(node* n)
 void list::insert_sorted(node* original)
 {
     node *temp, *current, *previous;
-    // make a copy of the node sent in
+    // make a copy of the node sent in so we don't delete the original data
     temp = copy(original);
 
     if(!head)
     {
+        // list is empty
         head = temp;
         head->next = NULL;
     }
@@ -93,8 +97,7 @@ void list::insert_sorted(node* original)
         // traverse to find location to insert
         current = head->next;
         previous = head;
-        while(current && 
-                strcmp(temp->a_dog.name, current->a_dog.name) > 0)
+        while(current && strcmp(temp->a_dog.name, current->a_dog.name) > 0)
         {
             previous = current;
             current = current->next;
