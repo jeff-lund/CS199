@@ -3,7 +3,7 @@
 #include "node.h"
 using namespace std;
 
-const bool MANUAL = false;
+const bool MANUAL = true;
 
 int main(void)
 {
@@ -26,19 +26,7 @@ int main(void)
     my_list.add(build_dog("Kilo", "Pit Bull", "Cuddle"));
     my_list.display_all();
 
-    my_list.remove("Fido");
-    my_list.display_all();
 
-    my_list.remove("Abelsworth");
-    my_list.display_all();
-
-    my_list.remove("Spot");
-    my_list.display_all();
-
-    my_list.~list(); // call destructor
-
-    list a_list; // what happens if we use the destructor on an empty list
-    a_list.~list();
   }
   else
   {
@@ -47,6 +35,8 @@ int main(void)
         my_list.add(interactive_build_dog());
         my_list.display_all();
     }
+    my_list.search_breed();
+    my_list.display_all();
   }
 
   return 0;

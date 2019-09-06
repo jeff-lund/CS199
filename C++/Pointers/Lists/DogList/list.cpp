@@ -2,14 +2,14 @@
 #include <cstring>
 #include "node.h"
 using namespace std;
-
+/*
 node::~node()
 {
     delete [] a_dog.name;
     delete [] a_dog.breed;
     delete [] a_dog.trick;
 }
-
+*/
 list::list()
 {
   head = NULL;
@@ -27,6 +27,83 @@ list::~list()
   }
   return;
 }
+
+void list::search_breed()
+{
+    char buffer[500];
+    list sorted;
+    node *current = head;
+
+    cout << "Enter the breed of dog to search for: ";
+    cin.get(buffer, 500, '\n');
+    cin.ignore(100, '\n');
+
+    while(current)
+    {
+        if(strcmp(buffer, current->a_dog.breed) == 0)
+        {
+            sorted.insert_sorted(current);
+        }
+        current = current->next;
+    }
+    sorted.display_all();
+}
+
+node * list::copy(node* n)
+{
+    node * temp;
+    dog *original, *copy;
+
+    temp = new node;
+    original = &(n->a_dog);
+    copy = &(temp->a_dog);
+
+    copy->name = new char[strlen(original->name) + 1];
+    strcpy(copy->name, original->name);
+    
+    copy->breed = new char[strlen(original->breed) + 1];
+    strcpy(copy->breed, original->breed);
+    
+    copy->trick = new char[strlen(original->trick) + 1];
+    strcpy(copy->trick, original->trick);
+    temp->next = NULL;
+
+    return temp;
+}
+
+void list::insert_sorted(node* original)
+{
+    node *temp, *current, *previous;
+    // make a copy of the node sent in
+    temp = copy(original);
+
+    if(!head)
+    {
+        head = temp;
+        head->next = NULL;
+    }
+    else if(strcmp(temp->a_dog.name, head->a_dog.name) < 0)
+    {
+        // replace the head with the new node
+        temp->next = head;
+        head = temp;
+    }
+    else
+    {
+        // traverse to find location to insert
+        current = head->next;
+        previous = head;
+        while(current && 
+                strcmp(temp->a_dog.name, current->a_dog.name) > 0)
+        {
+            previous = current;
+            current = current->next;
+        }
+        temp->next = current;
+        previous->next = temp;
+    }
+}
+
 
 void display_dog(dog & d)
 {

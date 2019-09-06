@@ -8,7 +8,7 @@ struct dog
 struct node {
     dog a_dog;
     node *next;
-    ~node();
+    //~node();
 };
 
 
@@ -22,7 +22,10 @@ class list
         void remove(const char*);
         int count();
         void display_all();
+        void search_breed();
     private:
+        node* copy(node*);
+        void insert_sorted(node*);
         node *head;
 };
 
