@@ -3,7 +3,7 @@
 #include "node.h"
 using namespace std;
 
-const bool MANUAL = true;
+const bool MANUAL = false;
 
 int main(void)
 {
@@ -11,21 +11,27 @@ int main(void)
   if(!MANUAL)
   {
 
-    my_list.add(build_dog("Spark", "Golden Retriever", "Fetch"));
+    my_list.append(build_dog("Spark", "Golden Retriever", "Fetch"));
     my_list.display_all();
 
-    my_list.add(build_dog("Bork", "Poodle", "Yapping"));
+    my_list.append(build_dog("Bork", "Poodle", "Yapping"));
     my_list.display_all();
 
-    my_list.add(build_dog("Fido", "Beagle", "Play Dead"));
+    my_list.append(build_dog("Fido", "Beagle", "Play Dead"));
     my_list.display_all();
 
-    my_list.add(build_dog("Abelsworth", "Black Lab", "Shake"));
+    my_list.append(build_dog("Abelsworth", "Black Lab", "Shake"));
     my_list.display_all();
 
-    my_list.add(build_dog("Kilo", "Pit Bull", "Cuddle"));
+    my_list.append(build_dog("Kilo", "Pit Bull", "Cuddle"));
+    my_list.append(build_dog("Farnsworth", "Black Lab", "Roll Over"));
+    my_list.append(build_dog("Aardvark", "Black Lab", "Howl at the Moon"));
+    my_list.append(build_dog("Jack", "Black Lab", "Lick"));
+    my_list.append(build_dog("Aaalwaysfirst", "Black Lab", "Leap"));
+    my_list.append(build_dog("Zebra", "Black Lab", "Fart"));
     my_list.display_all();
-
+    cout << "Try searching for Black Lab." << endl;
+    my_list.search_breed();
 
   }
   else
@@ -36,7 +42,6 @@ int main(void)
         my_list.display_all();
     }
     my_list.search_breed();
-    my_list.display_all();
   }
 
   return 0;

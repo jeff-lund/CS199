@@ -2,14 +2,14 @@
 #include <cstring>
 #include "node.h"
 using namespace std;
-/*
+
 node::~node()
 {
     delete [] a_dog.name;
     delete [] a_dog.breed;
     delete [] a_dog.trick;
 }
-*/
+
 list::list()
 {
   head = NULL;
@@ -263,4 +263,24 @@ dog interactive_build_dog()
 
     cout << endl;
 	return a_dog;
+}
+
+void list::append(dog d)
+{
+    node *current, *temp;
+    temp = new node;
+    temp->a_dog = d;
+    temp->next = NULL;
+
+    if(!head)
+    {
+        head = temp;
+    }
+    else
+    {
+        current = head;
+        while(current->next)
+            current = current->next;
+        current->next = temp;
+    }
 }

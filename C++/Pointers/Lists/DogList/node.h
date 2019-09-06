@@ -8,7 +8,7 @@ struct dog
 struct node {
     dog a_dog;
     node *next;
-    //~node();
+    ~node();
 };
 
 
